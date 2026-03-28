@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ピックルボール全ショット解説 | 動画で学ぶテクニック集</title>
+  <style>
+    :root {
+      --primary: #1a7a3a;
+      --primary-light: #e8f5e9;
+      --primary-dark: #0d5a25;
+      --accent: #ff6f00;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --text-light: #666666;
+      --border: #e0e0e0;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover, nav a:focus {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .shot-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+
+    .shot-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .shot-number {
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .shot-header h2 {
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+    }
+
+    .shot-header h2 span {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+
+    .shot-description {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .shot-tips {
+      margin-bottom: 1.5rem;
+    }
+
+    .shot-tips h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .shot-tips ul {
+      padding-left: 1.5rem;
+    }
+
+    .shot-tips li {
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .video-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-info {
+      padding: 0.8rem 1rem;
+    }
+
+    .video-info h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .video-info p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    .search-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #ff0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .search-link:hover {
+      opacity: 0.85;
+    }
+
+    .search-link svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    .difficulty {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .difficulty.beginner { background: #e3f2fd; color: #1565c0; }
+    .difficulty.intermediate { background: #fff3e0; color: #e65100; }
+    .difficulty.advanced { background: #fce4ec; color: #c62828; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      .video-grid { grid-template-columns: 1fr; }
+      nav a { font-size: 0.8rem; padding: 0.3rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏓 ピックルボール全ショット解説</h1>
+  <p>動画で学ぶ7つの基本ショット＋応用テクニック</p>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#serve">サーブ</a>
+    <a href="#return">リターン</a>
+    <a href="#third-shot-drop">ドロップショット</a>
+    <a href="#drive">ドライブ</a>
+    <a href="#dink">ディンク</a>
+    <a href="#volley">ボレー</a>
+    <a href="#overhead">オーバーヘッド</a>
+    <a href="#lob">ロブ</a>
+    <a href="#advanced">応用ショット</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. サーブ -->
+  <section class="shot-section" id="serve">
+    <div class="shot-header">
+      <div class="shot-number">1</div>
+      <h2>サーブ <span>Serve</span> <span class="difficulty beginner">初級</span></h2>
+    </div>
+    <div class="shot-description">
+      ラリーを始める唯一のショット。アンダーハンドで、ボールとの接触がおへそより下で行われる必要があります。<strong>ドロップサーブ</strong>（ボールを落としてから打つ）と<strong>トスサーブ</strong>（トスしてから打つ）の2種類があります。深くバックハンド側に打つのが基本戦略です。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>唯一、自分が完全にコントロールできるショット</li>
+        <li>ベースラインから2〜3フィート内側を狙うと安全</li>
+        <li>相手のバックハンド側を狙い、ベースライン後方に押し込む</li>
+        <li>初心者にはドロップサーブがおすすめ</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/8YF5MyeEbVQ" title="Zane Navratil Pickleball Serve" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>Zane Navratilのサーブテクニック</h4>
+          <p>トッププロによるパワフルなサーブの打ち方（英語）</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLqRWeSCm2xyOBb1cxyV1vvAu-7dZnCPiH" title="PrimeTime Pickleball - Serve Tips" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>PrimeTime Pickleball サーブレッスン</h4>
+          <p>5.0レベルコーチによる段階的な解説（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+serve+tutorial+beginner" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとサーブ動画を探す
+    </a>
+  </section>
+
+  <!-- 2. リターン -->
+  <section class="shot-section" id="return">
+    <div class="shot-header">
+      <div class="shot-number">2</div>
+      <h2>リターン <span>Return of Serve</span> <span class="difficulty beginner">初級</span></h2>
+    </div>
+    <div class="shot-description">
+      サーブに対する返球。深くリターンすることで、相手をベースライン後方に留め、自分はキッチンライン（ノンボレーゾーン）に向かって前進する時間を稼ぎます。リターン後すぐにネット前に移動するのが鍵。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>ベースラインの少し後ろに構えてリターンに備える</li>
+        <li>深いリターンで相手を後ろに押し込む</li>
+        <li>リターン後すぐにキッチンラインへ前進する</li>
+        <li>安定性を重視し、無理に攻めない</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1Afwdzs0b8A" title="7 Fundamental Pickleball Shots" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>7つの基本ショット解説（Mari Humberg）</h4>
+          <p>プロ選手が全ショットをわかりやすく解説（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+return+of+serve+tutorial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとリターン動画を探す
+    </a>
+  </section>
+
+  <!-- 3. サードショットドロップ -->
+  <section class="shot-section" id="third-shot-drop">
+    <div class="shot-header">
+      <div class="shot-number">3</div>
+      <h2>ドロップショット <span>Third Shot Drop</span> <span class="difficulty intermediate">中級</span></h2>
+    </div>
+    <div class="shot-description">
+      ピックルボールで最も重要なショットの一つ。ベースライン付近から柔らかく打ち、相手のキッチン（ノンボレーゾーン）にボールを落とすショット。サーブ側が不利な状況を改善し、ネット前に出るための「橋渡し」となるディフェンシブな技術です。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>「打つ」のではなく「押し出す」ような感覚で</li>
+        <li>下から上への弧を描き、ネットの手前で頂点を迎えるように</li>
+        <li>手首を固定し、肩の動きで打つ</li>
+        <li>まず足を決めてから打ち、その後に前進する</li>
+        <li>パドルを下から上にゆっくりスイングし、山を描くように打つ</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLqRWeSCm2xyMp-cxMKA7V3rU3i_D7Y1b2" title="Third Shot Drop Tutorials" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>サードショットドロップ集中解説</h4>
+          <p>基本フォームから応用まで（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+third+shot+drop+tutorial+beginner" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとドロップショット動画を探す
+    </a>
+  </section>
+
+  <!-- 4. ドライブ -->
+  <section class="shot-section" id="drive">
+    <div class="shot-header">
+      <div class="shot-number">4</div>
+      <h2>ドライブ <span>Drive</span> <span class="difficulty intermediate">中級</span></h2>
+    </div>
+    <div class="shot-description">
+      速くフラットに打つ攻撃的なショット。主にミッドコートやベースラインから打ちます。相手を崩すために使いますが、ドロップとの使い分けが重要。3rdショットでドライブかドロップかの判断が試合を左右します。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>ボールを体の前で捉える</li>
+        <li>ネットすれすれの低い弾道を意識する</li>
+        <li>打った後のポジショニングも考慮する</li>
+        <li>ドロップが通りにくい状況ではドライブを選択</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1Afwdzs0b8A" title="7 Fundamental Shots - Drive" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>7つの基本ショット（ドライブ含む）</h4>
+          <p>Mari Humbergによる全ショット解説（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+drive+shot+tutorial+technique" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとドライブ動画を探す
+    </a>
+  </section>
+
+  <!-- 5. ディンク -->
+  <section class="shot-section" id="dink">
+    <div class="shot-header">
+      <div class="shot-number">5</div>
+      <h2>ディンク <span>Dink</span> <span class="difficulty beginner">初級</span></h2>
+    </div>
+    <div class="shot-description">
+      キッチンライン付近から、相手のキッチン内に柔らかく落とすショット。ピックルボールの醍醐味とも言われるショットで、相手にミスを誘い、攻撃チャンスを作ります。「スイング」ではなく「押し上げる」イメージが大切。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>コンチネンタルグリップ（握手グリップ）で軽く握る</li>
+        <li>膝を曲げて重心を低くし、体全体で打つ</li>
+        <li>パドルを体の前に出し、前でボールを捉える</li>
+        <li>短くコンパクトなスイングで打球後の準備を早くする</li>
+        <li>クロスコートのディンクは角度がつき有効</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/iv80N9YgZLU" title="Pickleball Dink Drill" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>ストレートオン・ディンクドリル</h4>
+          <p>PrimeTime Pickleball のウォームアップドリル（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+dink+shot+tutorial+beginner" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとディンク動画を探す
+    </a>
+  </section>
+
+  <!-- 6. ボレー -->
+  <section class="shot-section" id="volley">
+    <div class="shot-header">
+      <div class="shot-number">6</div>
+      <h2>ボレー <span>Volley</span> <span class="difficulty intermediate">中級</span></h2>
+    </div>
+    <div class="shot-description">
+      ボールがバウンドする前に空中で打つショット。地面近くでも頭の上でも、バウンド前に打てばボレーです。キッチン（ノンボレーゾーン）の外で打つ必要があり、モメンタムでキッチンに入ってもフォルトになります。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>パドルを常に胸の前に準備しておく</li>
+        <li>コンパクトなスイングで、振り過ぎない</li>
+        <li>キッチンラインのすぐ後ろにポジショニング</li>
+        <li>ソフトハンド（柔らかい手首）でリセットボレーも習得する</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1Afwdzs0b8A?start=180" title="Volley Technique" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>ボレーの基本テクニック</h4>
+          <p>7つの基本ショット解説より（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+volley+technique+tutorial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとボレー動画を探す
+    </a>
+  </section>
+
+  <!-- 7. オーバーヘッド -->
+  <section class="shot-section" id="overhead">
+    <div class="shot-header">
+      <div class="shot-number">7</div>
+      <h2>オーバーヘッド <span>Overhead / Smash</span> <span class="difficulty intermediate">中級</span></h2>
+    </div>
+    <div class="shot-description">
+      相手のロブに対して頭上から叩き込むフィニッシュショット。高いボールをパワフルに打ち下ろし、ポイントを決めます。テニスのスマッシュに似ていますが、キッチン内では打てないルールに注意。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>早めに落下点の下に入る</li>
+        <li>横向きに構え、非利き手でボールを指す</li>
+        <li>相手の足元を狙って打ち下ろす</li>
+        <li>キッチンに踏み込まないよう注意</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1Afwdzs0b8A?start=300" title="Overhead Smash" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4>オーバーヘッドの打ち方</h4>
+          <p>7つの基本ショット解説より（英語）</p>
+        </div>
+      </div>
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+overhead+smash+tutorial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでもっとオーバーヘッド動画を探す
+    </a>
+  </section>
+
+  <!-- 8. ロブ -->
+  <section class="shot-section" id="lob">
+    <div class="shot-header">
+      <div class="shot-number">8</div>
+      <h2>ロブ <span>Lob</span> <span class="difficulty intermediate">中級</span></h2>
+    </div>
+    <div class="shot-description">
+      ボールを高く上げて相手の頭上を越すショット。攻撃的ロブ（ネット前にいる相手を崩す）と守備的ロブ（苦しい状況をリセットする）の2種類があります。使いすぎると読まれてスマッシュされるため、ここぞという場面で使うのが効果的。
+    </div>
+    <div class="shot-tips">
+      <h3>ポイント</h3>
+      <ul>
+        <li>ディンクと同じフォームから打つと読まれにくい</li>
+        <li>風の影響を考慮する（追い風で飛びすぎに注意）</li>
+        <li>攻撃ロブはバックハンド側を狙う</li>
+        <li>守備ロブは高さを出してリカバリー時間を稼ぐ</li>
+      </ul>
+    </div>
+    <div class="video-grid">
+    </div>
+    <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+lob+shot+tutorial+when+to+use" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+      YouTubeでロブの動画を探す
+    </a>
+  </section>
+
+  <!-- 9. 応用ショット -->
+  <section class="shot-section" id="advanced">
+    <div class="shot-header">
+      <div class="shot-number">+</div>
+      <h2>応用ショット <span>Advanced Shots</span> <span class="difficulty advanced">上級</span></h2>
+    </div>
+    <div class="shot-description">
+      基本7ショットを習得した後にチャレンジしたい応用テクニック。試合で使いこなせれば大きな武器になります。
+    </div>
+
+    <div class="shot-tips">
+      <h3>リセットショット（Reset Shot）</h3>
+      <ul>
+        <li>相手の強打をキッチン内にソフトに返す中和ショット</li>
+        <li>足元に打たれた時にドロップで返しながらネット前に出る</li>
+        <li>パドルフェースを開いてボールの勢いを吸収する</li>
+      </ul>
+    </div>
+
+    <div class="shot-tips">
+      <h3>アーニ（Erne）</h3>
+      <ul>
+        <li>キッチン横をジャンプして空中でボレーする大技</li>
+        <li>ノンボレーゾーン外に着地する必要がある</li>
+        <li>サイドライン際のディンクに対して効果的</li>
+      </ul>
+    </div>
+
+    <div class="shot-tips">
+      <h3>ATP（Around The Post）</h3>
+      <ul>
+        <li>ネットポストの横を通してリターンするショット</li>
+        <li>ワイドに振られた時の逆転ショット</li>
+        <li>ネットより低い弾道でもOK（ネットを越える必要なし）</li>
+      </ul>
+    </div>
+
+    <div class="shot-tips">
+      <h3>バックハンドフリック</h3>
+      <ul>
+        <li>ディンクラリー中に突然スピードを上げる攻撃ショット</li>
+        <li>手首のスナップで素早く打つ</li>
+        <li>相手が浮いたディンクを打った瞬間がチャンス</li>
+      </ul>
+    </div>
+
+    <div class="shot-tips">
+      <h3>トップスピンロール</h3>
+      <ul>
+        <li>ボールに強いトップスピンをかけて落とすショット</li>
+        <li>ドロップとドライブの中間的なショット</li>
+        <li>ハイブリッドロール：2026年注目の新テクニック</li>
+      </ul>
+    </div>
+
+    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+      <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+erne+shot+tutorial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+        アーニ動画を探す
+      </a>
+      <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+ATP+around+the+post+tutorial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+        ATP動画を探す
+      </a>
+      <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+reset+shot+tutorial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+        リセットショット動画を探す
+      </a>
+      <a class="search-link" href="https://www.youtube.com/results?search_query=pickleball+topspin+roll+shot+tutorial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+        トップスピン動画を探す
+      </a>
+    </div>
+  </section>
+
+  <!-- おすすめチャンネル -->
+  <section class="shot-section" id="channels" style="background: var(--primary-light); padding: 1.5rem; border-radius: 12px;">
+    <h2 style="margin-bottom: 1rem; color: var(--primary-dark);">📺 おすすめYouTubeチャンネル</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+      <div style="background: white; padding: 1rem; border-radius: 8px;">
+        <h4><a href="https://www.youtube.com/results?search_query=PrimeTime+Pickleball" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">PrimeTime Pickleball</a></h4>
+        <p style="font-size: 0.85rem; color: var(--text-light);">IPTPA認定5.0コーチ Nicole Havlicek による本格レッスン。ストローク、フットワーク、戦術を深く解説。17万人以上の登録者。</p>
+      </div>
+      <div style="background: white; padding: 1rem; border-radius: 8px;">
+        <h4><a href="https://www.youtube.com/results?search_query=Briones+Pickleball" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">Briones Pickleball</a></h4>
+        <p style="font-size: 0.85rem; color: var(--text-light);">Jordan Briones による初心者から上級者まで対応するマスタークラス。10年以上のコーチ経験を持つ。</p>
+      </div>
+      <div style="background: white; padding: 1rem; border-radius: 8px;">
+        <h4><a href="https://www.youtube.com/results?search_query=Zane+Navratil+pickleball" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">Zane Navratil</a></h4>
+        <p style="font-size: 0.85rem; color: var(--text-light);">トップランクプロ。ユーモアを交えたハイレベルな指導が特徴。サーブテクニックの解説が特に人気。</p>
+      </div>
+      <div style="background: white; padding: 1rem; border-radius: 8px;">
+        <h4><a href="https://www.youtube.com/results?search_query=Better+Pickleball" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">Better Pickleball</a></h4>
+        <p style="font-size: 0.85rem; color: var(--text-light);">50歳以上のプレーヤー向け。レクリエーション層に最適な、わかりやすい初心者ティップスが充実。</p>
+      </div>
+      <div style="background: white; padding: 1rem; border-radius: 8px;">
+        <h4><a href="https://www.youtube.com/results?search_query=ピックルボール+解説" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">日本語チャンネルを探す</a></h4>
+        <p style="font-size: 0.85rem; color: var(--text-light);">日本語でピックルボール解説をしているチャンネルもYouTubeで増えています。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>ピックルボール全ショット解説 &copy; 2026 | 動画の著作権は各制作者に帰属します</p>
+  <p style="margin-top: 0.3rem;">参考：<a href="https://www.thedinkpickleball.com/7-fundamental-pickleball-shots-explained/" target="_blank" rel="noopener">The Dink Pickleball</a> / <a href="https://pickle-one.com/" target="_blank" rel="noopener">ピックルボールワン</a> / <a href="https://primetimepickleball.com/" target="_blank" rel="noopener">PrimeTime Pickleball</a></p>
+</footer>
+
+</body>
+</html>
